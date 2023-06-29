@@ -15,6 +15,7 @@ import shutil
 from datetime import datetime
 import time
 import platform
+from pynput.keyboard import Key, Controller
 
 #logdir = '/tmp/copytklog'
 logdir = None
@@ -703,6 +704,9 @@ class PaneJumpAction:
 				pass
 		# refresh
 		self.stdscr.refresh()
+		keyboard = Controller()
+		keyboard.press(Key.left)
+		keyboard.release(Key.left)
 
 	def setstatus(self, msg):
 		self.status_msg = msg
